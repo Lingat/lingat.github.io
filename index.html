@@ -1,23 +1,121 @@
----
-layout: default
----
+<!DOCTYPE html>
+<head>
+<title> IST Project </title>
+<!-- NEED JQUERY, CSS STYLES (COPY AND PASTE STYLE IN HERE), MAYBE STORE.JS-->
+<script src = "js/jquery-2.1.3.min.js"></script>
+<script src = "js/jquery-ui.js"></script>
+<script src = "js/jquery.js"></script>
+<script src = "js/jquery-ui.min.js"></script>
+<script src="js/store.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+</head>
 
-<div class="home">
+<body>
 
-  <h1 class="page-heading">Posts</h1>
+<div class = "main_content">
+<div id = "back-to-top">
+^
+</div>
+<!-- Section One -->
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+<section class = "picture_block" id = "center_picture">
+<header class = "title_block">
+<p id = "title">The Evolution of the Mouse</p>
+<p id = "description">An amazing journey about the discovery of the mouse and its integral role in shaping the path of computers as we know it.</p>
+<div class = "arrows"id = "arrow_down"> v </div>
+</header>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+</section>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+
+<!-- Section Two -->
+
+<section class = "picture_block"id = "second_picture">
+
+<header class = "second_header"> 
+<h1> Stages of the Mouse </h1>
+</header>
+
+
+<div class = "circle_wrapper">
+<div class = "circles" id = "blue">
+<h3> First Mouse <br> 1963</h3>
+<div class = "circle_images" id = "circleone"> </div>
+</div>
+<div class = "circles" id = "red">
+<h3> Second Mouse <br> 1973</h3>
+<div class = "circle_images" id = "circletwo"> </div>
+</div>
+<div class = "circles" id = "green">
+<h3> Third Mouse <br> 1996</h3>
+<div class = "circle_images" id = "circlethree"> </div>
+</div>
+<div class = "circles" id = "yellow">
+<h3> Fourth Mouse <br> 2011</h3>
+<div class = "circle_images" id = "circlefour"> </div>
+</div>
+</div>
+
 
 </div>
+
+
+<div class = "arrows" id = "second_arrow_down"> v </div>
+
+</section>
+
+
+<!-- Section Three -->
+<section class = "picture_block" id = "third_picture">
+<div class = "opaque_wrapper"> 
+</div>
+
+<div id = "informational_wrapper">
+<h1 id = "infotitle"> The Importance of this technology</h1>
+<p id = "infocontent">The computer mouse, a simple tool that has been included into our everyday lives, without it computers would still be in their primal form, a solid box that can would only take command inputs. A mouse is simple yet integral into creating a computer, it is a tool that younger generations often take for granted.  The informal name of this technology came from the similarities of the technological mouse to the real life furry rodents. The similarity as such was the cord attached to the back of the mouse which was resembled the tail of common rodent that had the same name. </p>
+<div id = "next_info">NEXT </div>
+</div>
+
+<div class = "arrows" id = "third_arrow_down">v</div>
+</section>
+
+
+<!-- Section Four -->
+
+<section class = "picture_block" id = "fourth_picture">
+
+<div class = "last_blocks" id = "left_block">
+<span id = "design"><a href = "extras/design_process.jpg" target="_new">Design Process</a></span>
+|
+<span id = "portfolio"><a href = "extras/ISTTASK.pdf" target="_new">Portfolio</a></span>
+</div>
+<div id = "center_changer">
+</div>
+<div class = "last_blocks" id = "right_block">
+<span id = "code"><a href = "js/myScript.js" target="_new">The Code</a></span>
+|
+<span id = "bibliography"><a href = "extras/bibliography.pdf" target="_new">Bibliography</a></span>
+</div>
+<p id = "creds"> By Pierre Lingat </p>
+
+</section>
+
+</div>
+
+
+
+<script src="js/imagesloaded.js"></script>
+<script src="js/skrollr.js"></script>
+<script src="js/_main.js"></script>
+<script src = "js/myScript.js">
+</script>
+
+</body>
+<style>
+
+</style>
+
+
+</html>
