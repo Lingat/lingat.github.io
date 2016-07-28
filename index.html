@@ -4,16 +4,24 @@
 <script src = "js/jquery-ui.js"></script>
 <script src = "js/jquery.js"></script>
 <script src = "js/jquery-ui.min.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
 
 <title> Depressing Website </title>
 
 </head>
 <body>
 
-<p id = "press-me" style = "position: relative; margin-top: 20%; cursor: pointer"> Press me </p>
+<div class = "login-wrapper">
+<input id = "username" class = "my_input"><br>
+<input type = "password" id = "password" class = "my_input">
+<p id = "sign-in" class = "sq-button"> Enter </p>
+</div>
+
+<button id = "press-me" style = "position: relative; margin-top: 20%; cursor: pointer"> Press me </button>
 
 <p id = "p2"> This has been clicked <b><span id = "clicker-counter">0</span></b> times.</p>
 
@@ -22,14 +30,142 @@
 
 </body>
 <style>
-p {
+.login-wrapper {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 50%;
+  top: 25%;
+}
+
+
+p, button {
 	text-align: center;
 	outline: none;
-
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 #press-me {
-	outline: none;
+  box-shadow: none;
+  background: none;
+  border: none;
+  outline: none;
+
+ 
+   margin:0 auto;
+    display:block;
+  font-size: 25px;
+    -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;          
+  border-top: none;
+
 }
+.my_input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  border-bottom: 2px solid #EEEEEE;
+
+margin-left: 30%;
+  font-size: 20px;
+  background: none;
+  color: white;
+  width: 250px;
+
+
+}
+
+.sq-button {
+  max-width: 100px;
+
+  height: 30px;
+  padding-top: 10px;
+  word-spacing: 10px;
+  font-family: helvetica;
+  font-weight: 300;
+  text-align: center;
+  background-color: none;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  left: 40%;
+  position: relative;
+  top: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s linear, color 0.2s linear;
+
+}
+
+.sq-button:hover {
+    color: #1BCF5D;
+    background: white;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+
+
+
+
+body { 
+  background: #1681DE; /*#1BCF5D;*/
+  margin: 0;
+ }
+
+#username {
+  
+}
+#password {
+margin-top: 10%;
+}
+
+
+@media screen and (max-width: 600px) {
+  #press-me {
+  
+  }
+}
+
+
+
+
+/*
+
+.login-wrapper {
+  top: 30%;
+  left: -40%;
+}
+.sq-button {
+  margin-left: 70%;
+}
+}
+
+@media screen and (max-width: 800px, min-width: 700px) {
+
+.login-wrapper {
+  top: 30%;
+
+}
+.sq-button {
+  margin-left: 70%;
+}
+}
+
+@media screen and (max-width: 542px) {
+.login-wrapper {
+  top: 30%;
+  left: -60%;
+}
+.sq-button {
+  margin-left: 84%;
+}
+  }*/
 </style>
 
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
@@ -49,11 +185,17 @@ p {
 	var click_counter_show = document.getElementById("clicker-counter");
 	var visitor_counter_show = document.getElementById("visitor-counter");
 
-$()
+$('#p2, #p3, .login-wrapper').hide();
 
-$('#p2, #p3').hide();
+$('#sign-in').click(function(){
 
+$('body').animate({backgroundColor: "#1681DE"}, 1000)
 
+$('.login-wrapper').fadeOut(600);
+setTimeout(function(){
+$('#press-me').fadeIn();
+},2000);
+});
 
 var myRef = firebase.database().ref("counters/counter");
 var myVisitors = firebase.database().ref("counters/visitors");
@@ -63,7 +205,7 @@ myVisitors.transaction(function (current_value) {
 });
 
 $('#press-me').click(function() {
-	//transaction for stuff
+
 myRef.transaction(function (current_value) { 
 	return (current_value || 0) + 1;
 });
@@ -72,7 +214,10 @@ $('#p2').fadeIn();
 setTimeout(function(){
 $('#p3').fadeIn();
 },1000);
+
 });
+
+
 
 myRef.on("value", function(snapshot){
  click_counter_show.innerHTML = snapshot.val();
